@@ -1,0 +1,32 @@
+{
+    "name": "zinethq/data-exchange-socialite-provider",
+    "description": "DataExchange OAuth2 Provider for Laravel Socialite",
+    "license": "MIT",
+    "authors": [{
+        "name": "Ian Tasker",
+        "email": "ian.tasker@zinethq.com",
+        "homepage": "http://www.zinethq.com",
+        "role": "Developer"
+    }],
+    "require": {
+        "php": ">=5.5.9",
+        "socialiteproviders/manager": "2.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZiNETHQ\\DataExchangeSocialiteProvider\\": "src/"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://spark-satis.laravel.com"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "stable"
+}
