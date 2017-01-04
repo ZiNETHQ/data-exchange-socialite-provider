@@ -23,7 +23,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase('https://manage.staging.dataexchange.education/oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase(env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/oauth/authorize'), $state);
     }
 
     /**
@@ -31,7 +31,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return 'https://manage.staging.dataexchange.education/oauth/access_token';
+        return env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/oauth/access_token';
     }
 
     /**
@@ -39,7 +39,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get('https://manage.staging.dataexchange.education/api/v1/users/me', [
+        $response = $this->getHttpClient()->get(env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/api/v1/users/me', [
             'headers' => [
                 'Authorization' => 'Bearer '.$token,
             ],
