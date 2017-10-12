@@ -23,7 +23,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase(env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/oauth/authorize'), $state);
+        return $this->buildAuthUrlFromBase(env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/oauth/authorize', $state);
     }
 
     /**
