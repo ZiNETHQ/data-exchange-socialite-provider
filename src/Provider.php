@@ -8,22 +8,17 @@ use SocialiteProviders\Manager\OAuth2\User;
 
 class Provider extends AbstractProvider implements ProviderInterface
 {
-    /**
-     * Unique Provider Identifier.
-     */
-    const IDENTIFIER = 'DATAEXCHANGE';
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $scopes = ['basic'];
+    // /**
+    //  * {@inheritdoc}
+    //  */
+    protected $scopes = ['user'];
 
     /**
      * {@inheritdoc}
      */
     protected function getAuthUrl($state)
     {
-        return $this->buildAuthUrlFromBase(env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/oauth/authorize', $state);
+        return $this->buildAuthUrlFromBase('https://dataexchange.education/oauth/authorize', $state);
     }
 
     /**
@@ -31,7 +26,7 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenUrl()
     {
-        return env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/oauth/access_token';
+        return 'https://dataexchange.education/oauth/token';
     }
 
     /**
@@ -39,8 +34,9 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getUserByToken($token)
     {
-        $response = $this->getHttpClient()->get(env('SOCIALITE_DATAEXCHANGE_URL','https://manage.dataexchange.education').'/api/v1/users/me', [
+        $response = $this->getHttpClient()->get('https://dataexchange.education/api/user', [
             'headers' => [
+                'Accept' => 'application/json',
                 'Authorization' => 'Bearer '.$token,
             ],
         ]);
@@ -67,8 +63,6 @@ class Provider extends AbstractProvider implements ProviderInterface
      */
     protected function getTokenFields($code)
     {
-        return array_merge(parent::getTokenFields($code), [
-            'grant_type' => 'authorization_code'
-        ]);
+        return array_add(parent::getTokenFields($code), 'grant_type', 'authorization_code');
     }
 }
