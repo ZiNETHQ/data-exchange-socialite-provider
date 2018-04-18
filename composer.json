@@ -1,19 +1,24 @@
 {
     "name": "zinethq/data-exchange-socialite-provider",
     "description": "DataExchange OAuth2 Provider for Laravel Socialite",
-	"keywords": ["data", "exchange", "laravel", "socialite", "provider", "zinethq"],
+    "keywords": ["data", "exchange", "laravel", "socialite", "provider", "zinethq"],
     "license": "MIT",
-    "authors": [
-		{
-			"name": "Ian Tasker",
-			"email": "ian.tasker@zinethq.com",
-			"homepage": "http://www.zinethq.com",
-			"role": "Developer"
-		}
-	],
+    "authors": [{
+            "name": "Ian Tasker",
+            "email": "ian.tasker@zinethq.com",
+            "homepage": "http://www.zinethq.com",
+            "role": "Developer"
+        },
+        {
+            "name": "Jon Nicholson",
+            "email": "jon.nicholson@zinethq.com",
+            "homepage": "http://www.zinethq.com",
+            "role": "Developer"
+        }
+    ],
     "require": {
-        "php": ">=5.6.4",
-        "socialiteproviders/manager": "2.*"
+        "php": "^5.6 || ^7.0",
+        "socialiteproviders/manager": "~2.0 || ~3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.5"
@@ -25,7 +30,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "2.0.x-dev"
         }
     },
     "minimum-stability": "stable"
